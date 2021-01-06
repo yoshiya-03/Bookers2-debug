@@ -1,30 +1,21 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
+	def create
+		current_user.follow(params[:user_id])
+		redirect_to request.referer
+	end
 
-before_action :set_user
-
-  def create
-    current_user.follow(@user)
-    redirect_back fallback_location: root_url
-  end
-
-  def destroy
-    current_user.unfollow(@user)
-    redirect_back fallback_location: root_url
-  end
-
+	def destroy
+		current_user.unfollow(params[:user_id])
+		redirect_to request.referer
+	end
   def followings
-    @users = @user.followings
-    render 'users/index'
+		user = User.find(params[:user_id])
+		@users = user.followings
   end
 
   def followers
-    @users = @user.followers
-    render 'users/index'
-  end
-
-  private
-
-  def set_user
-    @user = User.find(params[:user_id])
+		user = User.find(params[:user_id])
+		@users = user.followers
   end
 end
