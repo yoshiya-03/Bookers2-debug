@@ -16,16 +16,16 @@ class User < ApplicationRecord
   validates :name, length: {maximum: 20, minimum: 2}, uniqueness: true
   validates :introduction, length: {maximum: 50}
   
-  # name LIKEと書くことでnameカラムを検索という意味になる
+  # name LIKEと書くことでnameカラムを検索
   def self.search_for(content, method)
-    if method == 'perfect'
+    if method == 'perfect'  # 選択した検索方法がが完全一致だったら
       User.where(name: content)
-    elsif method == 'forward'
+    elsif method == 'forward' # 選択した検索方法がが前方一致だったら
       User.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
+    elsif method == 'backward' # 選択した検索方法がが後方一致だったら
       User.where('name LIKE ?', '%' + content)
-    else
-      User.where('name LIKE ?', '%' + content + '%')
+    else      # 選択した検索方法がが部分一致だったら
+      User.where('name LIKE ?', '%' + content + '%') 
     end
   end
   
