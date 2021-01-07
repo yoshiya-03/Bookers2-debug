@@ -16,8 +16,8 @@
     <th>followers</th>
     <th><%= link_to user.followers.count, user_followers_path(user) %></th>
   </tr>
-</table>
 
+</table>
 <div class='row'>
   <% if current_user != user %>
     <% if current_user.following?(user) %>
@@ -26,6 +26,8 @@
       <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-success" %>
     <% end %>
   <% else %>
-    <%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+    <td><%= link_to '',edit_user_path(user),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %></td>
   <% end %>
+  </tr>
+  </tbody>
 </div>
