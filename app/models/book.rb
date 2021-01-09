@@ -3,8 +3,8 @@ class Book < ApplicationRecord
 
 	validates :title, presence: true
 	validates :body, presence: true, length: {maximum: 200}
-	
-	
+
+
 	 # book LIKEと書くことでbopkカラムを検索
   def self.search_for(content, method)
     if method == 'perfect' # 選択した検索方法がが完全一致だったら
@@ -14,7 +14,7 @@ class Book < ApplicationRecord
     elsif method == 'backward'# 選択した検索方法がが後方一致だったら
       Book.where('title LIKE ?', '%'+content)
     else # 選択した検索方法がが部分一致だったら
-      Book.where('title LIKE ?', '%'+content+'%') 
+      Book.where('title LIKE ?', '%'+content+'%')
     end
   end
 end
