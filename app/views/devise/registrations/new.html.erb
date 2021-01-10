@@ -34,6 +34,7 @@
         <br>
         <%= f.text_field :address_street, autocomplete: 'address_street', class: 'form-control' %>
         <br>
+
         <div class="field">
           <%= f.label :password %>
           <% if @minimum_password_length %>
@@ -46,7 +47,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
         </div>
         <div class="actions">
-          <%= f.submit "Sign up" ,class: 'btn btn-sm btn-success', class: "btn btn-success btn-sm btn-block sign_up" %>
+          <%= f.submit "Sign up" ,class: 'btn btn-sm btn-success', class: "btn btn-success md-7" %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
