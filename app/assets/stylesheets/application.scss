@@ -45,10 +45,11 @@ fbody,
   min-height: 100vh;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30px;
+body {
+  display: flex; //フレックスボックスに有効に
+  flex-flow: column; //要素を縦に並べる
+  min-height: 100vh; //最小でも画面の高さ分のbodyの高さを担保する
+}
+main {
+  flex: 1; //画面の高さから他の同レイヤーの要素の高さを引いた値に
 }
