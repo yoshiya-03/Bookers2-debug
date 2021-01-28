@@ -27,6 +27,18 @@
         <p id="notice"><%= notice %></p>
   <%= yield %>
       </main>
-    <%= render 'layouts/footer', book: @book, user: current_user %>
   </body>
+
+   <footer>
+  <div class="copyright">
+    <p class="mb-0">&copy 2021 - DMM - YOSHIYA-03</p>
+  </div>
+  <div class="social">
+    <a href="#" class="support">Contact Us</a>
+    <a href="#" class="face">f</a>
+    <a href="#" class="tweet">t</a>
+    <a href="#" class="linked">in</a>
+  </div>
+</footer>
+
 </html>
